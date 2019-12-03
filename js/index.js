@@ -80,7 +80,10 @@ function loadMore(loadBtn) {
         //插入相邻的html
         loadBtn.insertAdjacentHTML("beforebegin", '<div class="item animationFade">\n' +
             '            <p>强烈推荐</p>\n' +
-            '            <img src="img/2.jpg" alt="">\n' +
+            '            <div class="itemImg">\n' +
+            '                <img src="img/1.jpg" alt="">\n' +
+            '            </div>\n' +
+            '\n' +
             '            <div class="gameRating">\n' +
             '                <p class="reviewCount">2847人评分</p>\n' +
             '                <p class="ratingScore">\n' +
