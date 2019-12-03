@@ -142,7 +142,7 @@ function onSwitchOver(index) {
  */
 function onKeyUp(e) {
     if (e.keyCode === 13) {
-        alert("搜索中......");
+        alert("搜索功能开发中......");
     }
 }
 
