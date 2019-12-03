@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dd {
+            width: 3600px;
+            position: absolute;
+            /*transform:translateX(-600px);*/
+            /*transition: trasform 1s;*/
+        }
+
+        .dd li {
+            list-style: none;
+            width: 900px;
+            height: 350px;
+            float: left;
+        }
+        .main{
+            overflow: hidden;
+            width: 900px;
+            height: 400px;
+            position: relative;
+        }
+
+        .dd2{
+            position: absolute;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <ul id="dd">
+        <li>
+            <img src="img/3.jpg">
+        </li>
+        <li>
+            <img src="img/4.jpg">
+        </li>
+        <li>
+            <img src="img/5.jpg">
+        </li>
+        <li>
+            <img src="img/6.jpg">
+        </li>
+    </ul>
+    <ul id="dd2">
+        <li class="index"></li>
+    </ul>
+</div>
+
+</body>
+</html>
+
+<script>
+    var left=0;
+    var dd = document.getElementById("dd");
+    var imgInterval = setInterval(function () {
+        left=left-900;
+        if(left===-3600){
+            dd.style.transition="transform 0.1s";
+            left=0;
+        }else {
+            dd.style.transition="transform 0.4s";
+        }
+        dd.style.transform = "translateX("+ left +"px)";
+    },1000);
+
+
+
+</script>
