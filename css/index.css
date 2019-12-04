@@ -30,6 +30,17 @@ body {
     }
 }
 
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+}
+
 /*背景*/
 .video-bg {
     top: 0;
@@ -379,6 +390,10 @@ body {
     animation: fade-in 1.4s;
     animation-name: fade-in;
 }
+.animationFadeOut {
+    animation: fade-out .4s;
+    animation-name: fade-out;
+}
 
 .titleSection {
     height: 40px;
@@ -519,6 +534,26 @@ body {
 
 .footerContentRight a{
     color: #999;
+}
+/*回到顶部*/
+.backTop{
+    display: none;
+    /*固定到某处*/
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 28px;
+    border-radius: 4px;
+    text-align: center;
+    background: #2c323b;
+}
+.backTop:hover{
+    cursor: pointer;
+    background: #45515a;
+    box-shadow: 0 2px 9px 4px #ffffff;
 }
 
 /*

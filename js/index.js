@@ -147,7 +147,7 @@ function onKeyUp(e) {
 }
 
 /**
- * 监听item是否出现，出现则添加动画
+ * 监听item是否出现，出现则添加动画，添加回到顶部的按钮事件
  * @type {Array}
  */
 var elements = [];
@@ -155,16 +155,39 @@ var windowHeight = window.screen.availHeight;
 function getTop(clsName) {
     var obj = document.getElementsByClassName(clsName);
     // console.log(obj[5].getBoundingClientRect().top);
-    console.log(window.screen.availHeight);
     for (var i = 0; i < obj.length; i++) {
         if ((windowHeight - obj[i].getBoundingClientRect().top) > 100 && !obj[i].classList.contains("animationFade")) {
             elements.push(obj[i]);
         }
     }
 }
+var backTop = document.getElementsByClassName("backTop")[0];
+var isShow=false;//默认没显示回到顶部按钮
+var isT=true;//控制显示状态
 window.addEventListener("scroll", function (evt) {
     getTop("item");
     for (var i = 0; i < elements.length; i++) {
         elements[i].classList.add("animationFade");
     }
+    var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+    //backTop.style.display不能用style直接获取，全是空的https://www.jianshu.com/p/58c12245c2cc
+    //window.getComputedStyle(backTop).getPropertyValue("display")==="none"
+    if(scrollTop>100&&!isShow){
+        backTop.classList.remove("animationFadeOut");
+        backTop.classList.add("animationFade");
+        backTop.style.display="block";
+        isShow=true;
+    }else if(scrollTop<100&&isShow&&isT){
+        backTop.classList.remove("animationFade");
+        backTop.classList.add("animationFadeOut");
+        setTimeout(function () {
+            backTop.style.display="none";
+            isShow=false;
+            isT=true;
+        },400);
+        isT=false;
+    }
 });
+backTop.onclick=function () {
+    window.location.href="#nav";
+};

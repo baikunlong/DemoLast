@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>游戏</title>
+    <title>游戏社区</title>
 
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -14,7 +14,7 @@
         <div class="logo">
             <a href="#"></a>
         </div>
-        <div class="navlist">
+        <div class="navlist" id="nav">
             <ul>
                 <li class="active" onclick="addActive(this);"><a href="#">首页</a></li>
                 <li onclick="addActive(this);"><a href="#">排行榜</a></li>
@@ -24,10 +24,10 @@
                 <li class="more">
                     <a href="#">更多</a>
                     <ul>
-                        <li><a href="#">联系我11</a></li>
-                        <li><a href="#">2222</a></li>
-                        <li><a href="#">333333</a></li>
-                        <li><a href="#">444444444</a></li>
+                        <li><a href="#contactMe">联系我</a></li>
+                        <li><a href="#">关于我</a></li>
+                        <!--<li><a href="#">...</a></li>-->
+                        <!--<li><a href="#">...</a></li>-->
                     </ul>
                 </li>
             </ul>
@@ -352,7 +352,7 @@
         </div>
         <!--底部右边-->
         <div class="footerContentRight">
-            <p>Contact Me</p>
+            <p id="contactMe">Contact Me</p>
             <ul>
                 <li><a href="#"><img src="img/github.svg" alt=""></a></li>
                 <li><a href="#"><img src="img/csdn.svg" alt=""></a></li>
@@ -371,6 +371,9 @@
         </div>
     </div>
 </footer>
+
+<!--回到顶部-->
+<div class="backTop">👆</div>
 
 
 <!--<div>-->
