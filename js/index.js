@@ -32,8 +32,27 @@ window.addEventListener("scroll", function (evt) {
         isT = false;
     }
 });
-backTop.onclick = function () {
-    window.location.href = "#nav";
+
+/**
+ * 设置回到顶部的滑动效果
+ * @type {number}
+ */
+var clientHeight = document.documentElement.clientHeight;   //获取可视区域的高度
+var timer = null; //定义一个定时器
+var cc=0;
+backTop.onclick = function(){    //回到顶部按钮点击事件
+    //设置一个定时器
+    timer = setInterval(function(){
+        //获取滚动条的滚动高度
+        var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+        //用于设置速度差，产生缓动的效果
+        var speed = Math.floor(-osTop / 30);
+        document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+        console.log(++cc);
+        if(osTop === 0){
+            clearInterval(timer);
+        }
+    },10);
 };
 
 
@@ -72,6 +91,8 @@ function addActive(li) {
         case "发现":
             mainPage.src="categories.html";
             cPage=2;
+            //重新进入页面
+            cateIndex=0;
             break;
         case "论坛":
             mainPage.src="forum.html";
@@ -86,8 +107,11 @@ function addActive(li) {
 
 var cPage=0;//默认首页
 var mainIframe;//iframe
-
 var noNum=4;//排行榜默认有4个
+//类别的标题些
+var cateIndex=0;
+var categories=["新游预约","往期专题","近期最热","最近更新","单机","模拟","卡牌","动作","放置","角色扮演"];
+
 /**
  * 加载更多
  * @param loadBtn
@@ -109,12 +133,20 @@ function loadMore(loadBtn) {
                 //都有动画，但是不知道这里为啥多出了动画那一百px
                 mainPage.height=mainIframe.body.scrollHeight-100;
                 break;
+            case 2:
+                moreCategories();
+                //都有动画，但是不知道这里为啥多出了动画那一百px
+                mainPage.height=mainIframe.body.scrollHeight-100;
+                break;
         }
         loadImg.style.display = "none";
         loadBtn.style.display = "block";
     }, 1000);
 }
 
+/**
+ * 主页加载更多数据
+ */
 function moreMain() {
     var left = mainIframe.getElementsByClassName("leftContent")[0];
     var div = document.createElement("div");
@@ -122,7 +154,7 @@ function moreMain() {
     div.classList.add("animationFade");
     div.innerHTML="<p>强烈推荐</p>\n" +
         "            <div class=\"itemImg\">\n" +
-        "                <img src=\"img/1.jpg\" alt=\"\">\n" +
+        "                <img src=\"img/"+randomNum(1,6)+".jpg\" alt=\"\">\n" +
         "            </div>\n" +
         "\n" +
         "            <div class=\"gameRating\">\n" +
@@ -133,7 +165,7 @@ function moreMain() {
         "                </p>\n" +
         "            </div>\n" +
         "            <div class=\"gameInfo\">\n" +
-        "                <img src=\"img/1_icon.png\" alt=\"\">\n" +
+        "                <img src=\"img/"+randomNum(1,10)+"_icon.png\" alt=\"\">\n" +
         "                <div>\n" +
         "                    <p class=\"game-title\">\n" +
         "                        <span>明日方舟</span>\n" +
@@ -144,13 +176,16 @@ function moreMain() {
     left.appendChild(div);
 }
 
+/**
+ * 排行榜加载更多
+ */
 function moreTop() {
     var mainContent = mainIframe.getElementsByClassName("mainContent")[0];
     var div = document.createElement("div");
     div.classList.add("item");
     div.classList.add("animationFade");
     div.innerHTML="<div>\n" +
-        "            <img src=\"img/4_icon.png\" alt=\"\" class=\"imgIcon\">\n" +
+        "            <img src=\"img/"+randomNum(1,10)+"_icon.png\" alt=\"\" class=\"imgIcon\">\n" +
         "        </div>\n" +
         "        <div class=\"description\">\n" +
         "            <h1>战双帕弥什</h1>\n" +
@@ -159,7 +194,7 @@ function moreTop() {
         "            <p>《战双帕弥什》是一款末世科幻题材的3D动作手游。你将化身指挥官，带领人类最后的希望——仿生人形「构造体」，共同对抗被「帕弥什」病毒感染的机械...</p>\n" +
         "        </div>\n" +
         "        <div>\n" +
-        "            <img src=\"img/4.jpg\" alt=\"\" class=\"imgBig\">\n" +
+        "            <img src=\"img/"+randomNum(1,6)+".jpg\" alt=\"\" class=\"imgBig\">\n" +
         "        </div>\n" +
         "        <div class=\"itemTag\">\n" +
         "            <a href=\"#\">ARPG</a>\n" +
@@ -177,7 +212,100 @@ function moreTop() {
         "        </div>"
     mainContent.appendChild(div);
 }
+/**
+ * 发现模块加载更多
+ */
+function moreCategories() {
+    var mainContent = mainIframe.getElementsByClassName("mainContent")[0];
+    var div = document.createElement("div");
+    div.classList.add("item");
+    div.classList.add("animationFade");
+    div.innerHTML="<div class=\"titleSection\">\n" +
+        "            <h3>"+categories[++cateIndex]+"</h3>\n" +
+        "            <a href=\"#\">更多</a>\n" +
+        "        </div>\n" +
+        "        <div class=\"subList\">\n" +
+        "            <div class=\"subItem\">\n" +
+        "                <a href=\"#\">\n" +
+        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                </a>\n" +
+        "                <div class=\"subItemInfo\">\n" +
+        "                    <a href=\"#\" class=\"subItemName\">电竞传奇</a>\n" +
+        "                    <a href=\"#\" class=\"subItemType\">模拟</a>\n" +
+        "                    <span class=\"subItemScore\">9.9</span>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "            <div class=\"subItem\">\n" +
+        "                <a href=\"#\">\n" +
+        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                </a>\n" +
+        "                <div class=\"subItemInfo\">\n" +
+        "                    <a href=\"#\" class=\"subItemName\">樱桃湾之夏</a>\n" +
+        "                    <a href=\"#\" class=\"subItemType\">模拟</a>\n" +
+        "                    <span class=\"subItemScore\">9.9</span>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "            <div class=\"subItem\">\n" +
+        "                <a href=\"#\">\n" +
+        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                </a>\n" +
+        "                <div class=\"subItemInfo\">\n" +
+        "                    <a href=\"#\" class=\"subItemName\">阿卡迪亚</a>\n" +
+        "                    <a href=\"#\" class=\"subItemType\">卡牌</a>\n" +
+        "                    <span class=\"subItemScore\">9.9</span>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "            <div class=\"subItem\">\n" +
+        "                <a href=\"#\">\n" +
+        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                </a>\n" +
+        "                <div class=\"subItemInfo\">\n" +
+        "                    <a href=\"#\" class=\"subItemName\">无尽银河</a>\n" +
+        "                    <a href=\"#\" class=\"subItemType\">策略</a>\n" +
+        "                    <span class=\"subItemScore\">9.9</span>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "            <div class=\"subItem\">\n" +
+        "                <a href=\"#\">\n" +
+        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                </a>\n" +
+        "                <div class=\"subItemInfo\">\n" +
+        "                    <a href=\"#\" class=\"subItemName\">幽行玄城</a>\n" +
+        "                    <a href=\"#\" class=\"subItemType\">角色扮演</a>\n" +
+        "                    <span class=\"subItemScore\">9.9</span>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "            <div class=\"subItem\">\n" +
+        "                <a href=\"#\">\n" +
+        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                </a>\n" +
+        "                <div class=\"subItemInfo\">\n" +
+        "                    <a href=\"#\" class=\"subItemName\">猎人</a>\n" +
+        "                    <a href=\"#\" class=\"subItemType\">角色扮演</a>\n" +
+        "                    <span class=\"subItemScore\">9.9</span>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "        </div>";
+    console.log(mainContent);
+    mainContent.appendChild(div);
+}
 
+/**
+ * 生成从minNum到maxNum的随机数
+ * @param minNum
+ * @param maxNum
+ * @returns {number}
+ */
+function randomNum(minNum,maxNum){
+    switch(arguments.length){
+        case 1:
+            return parseInt(Math.random()*minNum+1,10);
+        case 2:
+            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+        default:
+            return 0;
+    }
+}
 
 /**
  * 根据id参数，访问并记录当前页面

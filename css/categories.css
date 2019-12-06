@@ -1,0 +1,106 @@
+/*标签模块*/
+.categoryTags{
+    width: 1040px;
+    height: 64px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.categoryTags .tag {
+    font-size: 16px;
+    height: 34px;
+    float: left;
+    line-height: 34px;
+    padding: 0 15px;
+    background: #14B9C8;
+    border-radius: 18px;
+    /*自适应宽度*/
+    display: list-item;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.categoryTags .tag a{
+    color: #ededed;
+    text-decoration: none;
+}
+.categoryTags .tag:hover{
+    background: #17d9ea;
+}
+
+/*主要内容*/
+.mainContent{
+    width: 1040px;
+    margin: 0 auto;
+}
+
+.titleSection {
+    height: 40px;
+    border-bottom: 1px solid #999999;
+    padding-bottom: 10px;
+}
+
+.titleSection > h3 {
+    float: left;
+    display: inline-block;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: 400;
+    padding-left: 10px;
+    border-left: 4px solid #14B9C8;
+    color: #ffffff;
+}
+
+.titleSection > a {
+    display: inline-block;
+    float: right;
+    margin: 10px 15px 0 0;
+    color: #14B9C8;
+}
+
+.item{
+    margin-bottom: 20px;
+}
+
+.subList{
+    width: 1040px;
+    height: 242px;
+}
+.subItem{
+    width: 157px;
+    height: 225px;
+    float: left;
+    display: block;
+    margin: 8px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.05);
+}
+.subItem img{
+    width: 128px;
+    height: 128px;
+    margin: 16px;
+}
+.subItemInfo{
+    margin-left: 20px;
+}
+.subItemName{
+    display: block;
+    color: #000;
+    margin-bottom: 10px;
+}
+.subItemType{
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    float: left;
+}
+.subItemScore{
+    color: #1296db;
+    font-size: 14px;
+    display: block;
+    background: url("../img/score.png") no-repeat 1px 1px;
+    background-size: 16px 16px;
+    float: right;
+    padding-left: 22px;
+    padding-right: 10px;
+}
