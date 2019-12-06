@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+
+</head>
+<body class="animationFade">
+
+<!--轮播图-->
+<div class="sliderWrap">
+    <ul id="banners">
+        <li class="sliderItem"><a href="#">
+            <img src="img/1.jpg" alt="">
+        </a></li>
+        <li class="sliderItem"><a href="#">
+            <img src="img/2.jpg" alt="">
+        </a></li>
+        <li class="sliderItem"><a href="#">
+            <img src="img/3.jpg" alt="">
+        </a></li>
+        <li class="sliderItem"><a href="#">
+            <img src="img/4.jpg" alt="">
+        </a></li>
+        <li class="sliderItem"><a href="#">
+            <img src="img/5.jpg" alt="">
+        </a></li>
+        <li class="sliderItem"><a href="#">
+            <img src="img/6.jpg" alt="">
+        </a></li>
+    </ul>
+    <ol class="cirbox">
+        <li class="active" onclick="onSwitchOver(0)"></li>
+        <li onclick="onSwitchOver(1)"></li>
+        <li onclick="onSwitchOver(2)"></li>
+        <li onclick="onSwitchOver(3)"></li>
+        <li onclick="onSwitchOver(4)"></li>
+        <li onclick="onSwitchOver(5)"></li>
+    </ol>
+    <a href="javascript:onChangeBanner(0)" class="bannersCtrl left">《</a>
+    <a href="javascript:onChangeBanner(1)" class="bannersCtrl right">》</a>
+</div>
+<!--游戏推荐列表与排行榜-->
+<div class="mainContent">
+    <div class="leftContent">
+        <div class="item">
+            <p>强烈推荐</p>
+            <div class="itemImg">
+                <img src="img/1.jpg" alt="">
+            </div>
+
+            <div class="gameRating">
+                <p class="reviewCount">2847人评分</p>
+                <p class="ratingScore">
+                    <img src="img/score.png" alt="">
+                    9.9
+                </p>
+            </div>
+            <div class="gameInfo">
+                <img src="img/1_icon.png" alt="">
+                <div>
+                    <p class="game-title">
+                        <span>明日方舟</span>
+                    </p>
+                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <p>强烈推荐</p>
+            <div class="itemImg">
+                <img src="img/2.jpg" alt="">
+            </div>
+            <div class="gameRating">
+                <p class="reviewCount">2847人评分</p>
+                <p class="ratingScore">
+                    <img src="img/score.png" alt="">
+                    9.9
+                </p>
+            </div>
+            <div class="gameInfo">
+                <img src="img/2_icon.png" alt="">
+                <div>
+                    <p class="game-title">
+                        <span>明日方舟</span>
+                    </p>
+                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <p>强烈推荐</p>
+            <div class="itemImg">
+                <img src="img/3.jpg" alt="">
+            </div>
+            <div class="gameRating">
+                <p class="reviewCount">2847人评分</p>
+                <p class="ratingScore">
+                    <img src="img/score.png" alt="">
+                    9.9
+                </p>
+            </div>
+            <div class="gameInfo">
+                <img src="img/3_icon.png" alt="">
+                <div>
+                    <p class="game-title">
+                        <span>明日方舟</span>
+                    </p>
+                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <p>强烈推荐</p>
+            <div class="itemImg">
+                <img src="img/4.jpg" alt="">
+            </div>
+            <div class="gameRating">
+                <p class="reviewCount">2847人评分</p>
+                <p class="ratingScore">
+                    <img src="img/score.png" alt="">
+                    9.9
+                </p>
+            </div>
+            <div class="gameInfo">
+                <img src="img/4_icon.png" alt="">
+                <div>
+                    <p class="game-title">
+                        <span>明日方舟</span>
+                    </p>
+                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <p>强烈推荐</p>
+            <div class="itemImg">
+                <img src="img/5.jpg" alt="">
+            </div>
+            <div class="gameRating">
+                <p class="reviewCount">2847人评分</p>
+                <p class="ratingScore">
+                    <img src="img/score.png" alt="">
+                    9.9
+                </p>
+            </div>
+            <div class="gameInfo">
+                <img src="img/5_icon.png" alt="">
+                <div>
+                    <p class="game-title">
+                        <span>明日方舟</span>
+                    </p>
+                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <p>强烈推荐</p>
+            <div class="itemImg">
+                <img src="img/6.jpg" alt="">
+            </div>
+            <div class="gameRating">
+                <p class="reviewCount">2847人评分</p>
+                <p class="ratingScore">
+                    <img src="img/score.png" alt="">
+                    9.9
+                </p>
+            </div>
+            <div class="gameInfo">
+                <img src="img/6_icon.png" alt="">
+                <div>
+                    <p class="game-title">
+                        <span>明日方舟</span>
+                    </p>
+                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--右边排行榜-->
+    <div class="rightContent">
+        <div class="titleSection">
+            <h3>排行榜</h3>
+            <a href="#">更多</a>
+        </div>
+        <ol class="gameList">
+            <li>
+                <span class="itemOrder">1</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/1_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">2</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/2_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">3</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/3_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">4</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/4_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">5</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/5_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">6</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/6_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">7</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/7_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">8</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/8_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">9</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/9_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+            <li>
+                <span class="itemOrder">10</span>
+                <a href="#" class="itemIcon">
+                    <img src="img/10_icon.png" alt="">
+                </a>
+                <div class="itemText">
+                    <p><a href="#">明日方舟</a></p>
+                    <p>评分：9.9</p>
+                    <p>卡牌 / 养成 / 角色扮演</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="js/main.js"></script>

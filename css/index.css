@@ -15,30 +15,8 @@ a:hover{
 }
 
 body {
-    background-color: #000000;
+    /*background-color: #000000;*/
     /*background-color: #f2f2f2;*/
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
 }
 
 /*背景*/
@@ -187,8 +165,8 @@ body {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    animation: fade-in 1.4s;
-    animation-name: fade-in;
+    /*animation: fade-in 1.4s;*/
+    /*animation-name: fade-in;*/
 }
 
 #banners {
@@ -382,17 +360,8 @@ body {
 .rightContent {
     width: 325px;
     float: right;
-    animation: fade-in 1.4s;
-    animation-name: fade-in;
-}
-
-.animationFade {
-    animation: fade-in 1.4s;
-    animation-name: fade-in;
-}
-.animationFadeOut {
-    animation: fade-out .4s;
-    animation-name: fade-out;
+    /*animation: fade-in 1.4s;*/
+    /*animation-name: fade-in;*/
 }
 
 .titleSection {

@@ -2,139 +2,40 @@
  * Created by Administrator on 2019/11/28.
  */
 
-/**
- * 使选择菜单背景变色
- * @param li 选中的菜单项
- */
-function addActive(li) {
-    var children = li.parentNode.children;
-    for (var i = 0; i < children.length; i++) {
-        children[i].classList.remove("active");
-    }
-    li.classList.add("active");
-}
+//主Iframe
+var mainPage = document.getElementById("mainPage");
 
 /**
- * 轮播图动画
- * @type {number}
+ * 添加回到顶部的按钮事件
+ * @type {Element}
  */
-var left = 0;
-var cirIndex = 0;//指标当前下标
-var banners = document.getElementById("banners");
-var sliderWrap = document.getElementsByClassName("sliderWrap")[0];
-
-function startLeft(isN) {
-    //消除上一个指标的状态
-    var children = document.getElementsByClassName("cirbox")[0].children;
-    children[cirIndex].classList.remove("active");
-    if (isN === undefined) {
-        left = left - 1040;
-        if (left < -5200) {
-            banners.style.transition = "transform 0.5s";
-            left = 0;
-        } else {
-            banners.style.transition = "transform 0.8s";
-        }
-        banners.style.transform = "translateX(" + left + "px)";
-        if (cirIndex === 5) cirIndex = -1;
-        children[++cirIndex].classList.add("active");
-    } else {
-        left = left + 1040;
-        if (left > 0) {
-            banners.style.transition = "transform 0.5s";
-            left = -5200;
-        } else {
-            banners.style.transition = "transform 0.8s";
-        }
-        banners.style.transform = "translateX(" + left + "px)";
-        if (cirIndex === 0) cirIndex = 6;
-        children[--cirIndex].classList.add("active");
+var backTop = document.getElementsByClassName("backTop")[0];
+var isShow = false;//默认没显示回到顶部按钮
+var isT = true;//控制显示状态
+window.addEventListener("scroll", function (evt) {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    //backTop.style.display不能用style直接获取，全是空的https://www.jianshu.com/p/58c12245c2cc
+    //window.getComputedStyle(backTop).getPropertyValue("display")==="none"
+    if (scrollTop > 100 && !isShow) {
+        backTop.classList.remove("animationFadeOut");
+        backTop.classList.add("animationFade");
+        backTop.style.display = "block";
+        isShow = true;
+    } else if (scrollTop < 100 && isShow && isT) {
+        backTop.classList.remove("animationFade");
+        backTop.classList.add("animationFadeOut");
+        setTimeout(function () {
+            backTop.style.display = "none";
+            isShow = false;
+            isT = true;
+        }, 400);
+        isT = false;
     }
-}
-
-var imgInterval = setInterval(startLeft, 2500);
-
-//鼠标移动到上面时就暂停播放且显示按钮
-var bannersCtrl = document.getElementsByClassName("bannersCtrl");
-sliderWrap.onmouseenter = function (ev) {
-    bannersCtrl[0].style.display = "block";
-    bannersCtrl[1].style.display = "block";
-    clearInterval(imgInterval);
-};
-//监听鼠标离开用leave,用out移动鼠标就总会触发
-sliderWrap.onmouseleave = function (ev) {
-    bannersCtrl[0].style.display = "none";
-    bannersCtrl[1].style.display = "none";
-    imgInterval = setInterval(startLeft, 2500);
+});
+backTop.onclick = function () {
+    window.location.href = "#nav";
 };
 
-/**
- * 加载更多
- * @param loadBtn
- */
-function loadMore(loadBtn) {
-    loadBtn.style.display = "none";
-    var loadImg = document.getElementById("loadImg");
-    loadImg.style.display = "block";
-    setTimeout(function () {
-        //插入相邻的html
-        loadBtn.insertAdjacentHTML("beforebegin", '<div class="item animationFade">\n' +
-            '            <p>强烈推荐</p>\n' +
-            '            <div class="itemImg">\n' +
-            '                <img src="img/1.jpg" alt="">\n' +
-            '            </div>\n' +
-            '\n' +
-            '            <div class="gameRating">\n' +
-            '                <p class="reviewCount">2847人评分</p>\n' +
-            '                <p class="ratingScore">\n' +
-            '                    <img src="img/score.png" alt="">\n' +
-            '                    9.9\n' +
-            '                </p>\n' +
-            '            </div>\n' +
-            '            <div class="gameInfo">\n' +
-            '                <img src="img/1_icon.png" alt="">\n' +
-            '                <div>\n' +
-            '                    <p class="game-title">\n' +
-            '                        <span>明日方舟</span>\n' +
-            '                    </p>\n' +
-            '                    <p class="game-description">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '        </div>');
-        loadImg.style.display = "none";
-        loadBtn.style.display = "block";
-    }, 1000);
-}
-
-/**
- * 监听轮播图按钮
- * @param isLN
- */
-function onChangeBanner(isLN) {
-    //上一张
-    if (isLN === 0) {
-        startLeft(1);
-    } else {
-        startLeft(undefined);
-    }
-}
-
-/**
- * 点击指标切换轮播图
- * @param index
- */
-function onSwitchOver(index) {
-    var children = document.getElementsByClassName("cirbox")[0].children;
-    for (var i = 0; i < children.length; i++) {
-        children[i].classList.remove("active");
-    }
-    children[index].classList.add("active");
-    //改变当前指标
-    cirIndex = index;
-    left = index * -1040;
-    banners.style.transition = "transform 0.7s";
-    banners.style.transform = "translateX(" + left + "px)";
-}
 
 /**
  * 监听回车抬起后开始搜索
@@ -147,47 +48,149 @@ function onKeyUp(e) {
 }
 
 /**
- * 监听item是否出现，出现则添加动画，添加回到顶部的按钮事件
- * @type {Array}
+ * 使选择菜单背景变色
+ * @param li 选中的菜单项
  */
-var elements = [];
-var windowHeight = window.screen.availHeight;
-function getTop(clsName) {
-    var obj = document.getElementsByClassName(clsName);
-    // console.log(obj[5].getBoundingClientRect().top);
-    for (var i = 0; i < obj.length; i++) {
-        if ((windowHeight - obj[i].getBoundingClientRect().top) > 100 && !obj[i].classList.contains("animationFade")) {
-            elements.push(obj[i]);
-        }
+function addActive(li) {
+    var children = li.parentNode.children;
+    for (var i = 0; i < children.length; i++) {
+        children[i].classList.remove("active");
+    }
+    li.classList.add("active");
+
+    switch (li.textContent) {
+        case "首页":
+            mainPage.src="main.html";
+            cPage=0;
+            break;
+        case "排行榜":
+            mainPage.src="top.html";
+            cPage=1;
+            //重新进入页面
+            noNum=4;
+            break;
+        case "发现":
+
+            break;
+        case "论坛":
+
+            break;
+        case "视频":
+
+            break;
     }
 }
-var backTop = document.getElementsByClassName("backTop")[0];
-var isShow=false;//默认没显示回到顶部按钮
-var isT=true;//控制显示状态
-window.addEventListener("scroll", function (evt) {
-    getTop("item");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].classList.add("animationFade");
+
+var cPage=0;//默认首页
+var mainIframe;//iframe
+
+var noNum=4;//排行榜默认有4个
+/**
+ * 加载更多
+ * @param loadBtn
+ */
+function loadMore(loadBtn) {
+    loadBtn.style.display = "none";
+    var loadImg = document.getElementById("loadImg");
+    loadImg.style.display = "block";
+    setTimeout(function () {
+        //获取iframe信息参考https://www.cnblogs.com/dearxinli/p/4218668.html
+        mainIframe = mainPage.contentWindow.document;
+        switch (cPage) {
+            case 0:
+                moreMain();
+                mainPage.height=mainIframe.body.scrollHeight;
+                break;
+            case 1:
+                moreTop();
+                //都有动画，但是不知道这里为啥多出了动画那一百px
+                mainPage.height=mainIframe.body.scrollHeight-100;
+                break;
+        }
+        loadImg.style.display = "none";
+        loadBtn.style.display = "block";
+    }, 1000);
+}
+
+function moreMain() {
+    var left = mainIframe.getElementsByClassName("leftContent")[0];
+    var div = document.createElement("div");
+    div.classList.add("item");
+    div.classList.add("animationFade");
+    div.innerHTML="<p>强烈推荐</p>\n" +
+        "            <div class=\"itemImg\">\n" +
+        "                <img src=\"img/1.jpg\" alt=\"\">\n" +
+        "            </div>\n" +
+        "\n" +
+        "            <div class=\"gameRating\">\n" +
+        "                <p class=\"reviewCount\">2847人评分</p>\n" +
+        "                <p class=\"ratingScore\">\n" +
+        "                    <img src=\"img/score.png\" alt=\"\">\n" +
+        "                    9.9\n" +
+        "                </p>\n" +
+        "            </div>\n" +
+        "            <div class=\"gameInfo\">\n" +
+        "                <img src=\"img/1_icon.png\" alt=\"\">\n" +
+        "                <div>\n" +
+        "                    <p class=\"game-title\">\n" +
+        "                        <span>明日方舟</span>\n" +
+        "                    </p>\n" +
+        "                    <p class=\"game-description\">「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场「喧闹法则」现已开启，堕天使“莫斯提马”登场</p>\n" +
+        "                </div>\n" +
+        "            </div>"
+    left.appendChild(div);
+}
+
+function moreTop() {
+    var mainContent = mainIframe.getElementsByClassName("mainContent")[0];
+    var div = document.createElement("div");
+    div.classList.add("item");
+    div.classList.add("animationFade");
+    div.innerHTML="<div>\n" +
+        "            <img src=\"img/4_icon.png\" alt=\"\" class=\"imgIcon\">\n" +
+        "        </div>\n" +
+        "        <div class=\"description\">\n" +
+        "            <h1>战双帕弥什</h1>\n" +
+        "            <p>厂商: 库洛游戏</p>\n" +
+        "            <p>评分: 9.8</p>\n" +
+        "            <p>《战双帕弥什》是一款末世科幻题材的3D动作手游。你将化身指挥官，带领人类最后的希望——仿生人形「构造体」，共同对抗被「帕弥什」病毒感染的机械...</p>\n" +
+        "        </div>\n" +
+        "        <div>\n" +
+        "            <img src=\"img/4.jpg\" alt=\"\" class=\"imgBig\">\n" +
+        "        </div>\n" +
+        "        <div class=\"itemTag\">\n" +
+        "            <a href=\"#\">ARPG</a>\n" +
+        "            <a href=\"#\">二次元</a>\n" +
+        "            <a href=\"#\">高画质</a>\n" +
+        "        </div>\n" +
+        "        <div class=\"itemType\">\n" +
+        "            <a href=\"#\">角色扮演</a>\n" +
+        "        </div>\n" +
+        "\n" +
+        "        <div class=\"itemNumBg\">\n" +
+        "        </div>\n" +
+        "        <div class=\"itemNum\">\n" +
+        "            "+(++noNum)+"\n" +
+        "        </div>"
+    mainContent.appendChild(div);
+}
+
+
+/**
+ * 根据id参数，访问并记录当前页面
+ * @param variable
+ * @returns {*}
+ */
+function getQueryVariable(variable)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] === variable){return pair[1];}
     }
-    var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
-    //backTop.style.display不能用style直接获取，全是空的https://www.jianshu.com/p/58c12245c2cc
-    //window.getComputedStyle(backTop).getPropertyValue("display")==="none"
-    if(scrollTop>100&&!isShow){
-        backTop.classList.remove("animationFadeOut");
-        backTop.classList.add("animationFade");
-        backTop.style.display="block";
-        isShow=true;
-    }else if(scrollTop<100&&isShow&&isT){
-        backTop.classList.remove("animationFade");
-        backTop.classList.add("animationFadeOut");
-        setTimeout(function () {
-            backTop.style.display="none";
-            isShow=false;
-            isT=true;
-        },400);
-        isT=false;
-    }
-});
-backTop.onclick=function () {
-    window.location.href="#nav";
-};
+    return(false);
+}
+var queryVariable = getQueryVariable("id");
+var navLis = document.getElementById("nav").getElementsByTagName("li");
+addActive(navLis[parseInt(queryVariable)]);
