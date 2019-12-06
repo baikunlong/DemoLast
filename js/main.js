@@ -83,31 +83,3 @@ function onSwitchOver(index) {
     banners.style.transition = "transform 0.7s";
     banners.style.transform = "translateX(" + left + "px)";
 }
-
-/**
- * 监听item是否出现，出现则添加动画
- * @type {Array}
- */
-var elements = [];
-var windowHeight = window.screen.availHeight;
-
-function getTop(clsName) {
-    var obj = document.getElementsByClassName(clsName);
-    // console.log(obj[5].getBoundingClientRect().top);
-    for (var i = 0; i < obj.length; i++) {
-        if ((windowHeight - obj[i].getBoundingClientRect().top) > 100 && !obj[i].classList.contains("animationFade")) {
-            elements.push(obj[i]);
-        }
-    }
-}
-
-var backTop = document.getElementsByClassName("backTop")[0];
-window.addEventListener("scroll", function (evt) {
-    getTop("item");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].classList.add("animationFade");
-    }
-});
-backTop.onclick = function () {
-    window.location.href = "#nav";
-};

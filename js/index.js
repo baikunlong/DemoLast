@@ -70,13 +70,16 @@ function addActive(li) {
             noNum=4;
             break;
         case "发现":
-
+            mainPage.src="categories.html";
+            cPage=2;
             break;
         case "论坛":
-
+            mainPage.src="forum.html";
+            cPage=3;
             break;
         case "视频":
-
+            mainPage.src="video.html";
+            cPage=4;
             break;
     }
 }
@@ -194,3 +197,38 @@ function getQueryVariable(variable)
 var queryVariable = getQueryVariable("id");
 var navLis = document.getElementById("nav").getElementsByTagName("li");
 addActive(navLis[parseInt(queryVariable)]);
+
+
+/**
+ * 监听每个页面的每个item是否出现，出现则添加动画
+ * @deprecated 因为Iframe为动态高，外部滚动事件在这没用，就算写一套也不能全部页面使用
+ * @type {Array}
+ */
+// var elements = [];
+// var windowHeight = window.screen.availHeight;
+// function getTop(clsName) {
+//     //用了iframe前
+//     // var obj = document.getElementsByClassName(clsName);
+//     //用了iframe后
+//     //刷新mainIframe的值
+//     mainIframe = mainPage.contentWindow.document;
+//     var obj = mainIframe.getElementsByClassName(clsName);
+//     //之前
+//     // console.log(obj[5].getBoundingClientRect().top);
+//     //之后
+//     console.log(obj[5].getBoundingClientRect().bottom);
+//     console.log(windowHeight);
+//     for (var i = 0; i < obj.length; i++) {
+//         if ((windowHeight - obj[i].getBoundingClientRect().top) > 100 && !obj[i].classList.contains("animationFade")) {
+//             elements.push(obj[i]);
+//         }
+//     }
+// }
+//
+// window.addEventListener("scroll", function (evt) {
+//     getTop("item");
+//     // console.log(elements.length);
+//     for (var i = 0; i < elements.length; i++) {
+//         elements[i].classList.add("animationFade");
+//     }
+// });
