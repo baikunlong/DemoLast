@@ -2,7 +2,6 @@
     width: 1040px;
     margin: 0 auto;
     padding-top: 30px;
-
 }
 
 .forumTypeList {
@@ -49,11 +48,11 @@
     z-index: 2;
 }
 
-.active {
+.forumTypeList .active {
     color: #5fdaff;
 }
 
-.active::after {
+.forumTypeList .active::after {
     background: #14B9C8;
     position: absolute;
     width: 100%;
@@ -68,14 +67,14 @@
 }
 
 /*mainContent*/
-.mainContent {
-    width: 636px;
-    float: left;
+.allContent .mainContent {
+    width: 686px;
     position: relative;
+    margin: 0 0 0 0;
 }
 
 .item {
-    width: 100%;
+    width: 636px;
     background-color: #ffffff;
     padding: 15px 25px;
     margin-bottom: 16px;
