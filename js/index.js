@@ -2,7 +2,7 @@
  * Created by Administrator on 2019/11/28.
  */
 
-//主Iframe
+//主Iframe,    mainPage=window.frames["mainPage"];
 var mainPage = document.getElementById("mainPage");
 
 /**
@@ -39,20 +39,20 @@ window.addEventListener("scroll", function (evt) {
  */
 var clientHeight = document.documentElement.clientHeight;   //获取可视区域的高度
 var timer = null; //定义一个定时器
-var cc=0;
-backTop.onclick = function(){    //回到顶部按钮点击事件
+var cc = 0;
+backTop.onclick = function () {    //回到顶部按钮点击事件
     //设置一个定时器
-    timer = setInterval(function(){
+    timer = setInterval(function () {
         //获取滚动条的滚动高度
         var osTop = document.documentElement.scrollTop || document.body.scrollTop;
         //用于设置速度差，产生缓动的效果
         var speed = Math.floor(-osTop / 30);
         document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
         console.log(++cc);
-        if(osTop === 0){
+        if (osTop === 0) {
             clearInterval(timer);
         }
-    },10);
+    }, 10);
 };
 
 
@@ -79,38 +79,38 @@ function addActive(li) {
 
     switch (li.textContent) {
         case "首页":
-            mainPage.src="main.html";
-            cPage=0;
+            mainPage.src = "main.html";
+            cPage = 0;
             break;
         case "排行榜":
-            mainPage.src="top.html";
-            cPage=1;
+            mainPage.src = "top.html";
+            cPage = 1;
             //重新进入页面
-            noNum=4;
+            noNum = 4;
             break;
         case "发现":
-            mainPage.src="categories.html";
-            cPage=2;
+            mainPage.src = "categories.html";
+            cPage = 2;
             //重新进入页面
-            cateIndex=0;
+            cateIndex = 0;
             break;
         case "论坛":
-            mainPage.src="forum.html";
-            cPage=3;
+            mainPage.src = "forum.html";
+            cPage = 3;
             break;
         case "视频":
-            mainPage.src="video.html";
-            cPage=4;
+            mainPage.src = "video.html";
+            cPage = 4;
             break;
     }
 }
 
-var cPage=0;//默认首页
+var cPage = 0;//默认首页
 var mainIframe;//iframe
-var noNum=4;//排行榜默认有4个
+var noNum = 4;//排行榜默认有4个
 //类别的标题些
-var cateIndex=0;
-var categories=["新游预约","往期专题","近期最热","最近更新","单机","模拟","卡牌","动作","放置","角色扮演"];
+var cateIndex = 0;
+var categories = ["新游预约", "往期专题", "近期最热", "最近更新", "单机", "模拟", "卡牌", "动作", "放置", "角色扮演"];
 
 /**
  * 加载更多
@@ -126,17 +126,17 @@ function loadMore(loadBtn) {
         switch (cPage) {
             case 0:
                 moreMain();
-                mainPage.height=mainIframe.body.scrollHeight;
+                mainPage.height = mainIframe.body.scrollHeight;
                 break;
             case 1:
                 moreTop();
                 //都有动画，但是不知道这里为啥多出了动画那一百px
-                mainPage.height=mainIframe.body.scrollHeight-100;
+                mainPage.height = mainIframe.body.scrollHeight - 100;
                 break;
             case 2:
                 moreCategories();
                 //都有动画，但是不知道这里为啥多出了动画那一百px
-                mainPage.height=mainIframe.body.scrollHeight-100;
+                mainPage.height = mainIframe.body.scrollHeight - 100;
                 break;
         }
         loadImg.style.display = "none";
@@ -152,9 +152,9 @@ function moreMain() {
     var div = document.createElement("div");
     div.classList.add("item");
     div.classList.add("animationFade");
-    div.innerHTML="<p>强烈推荐</p>\n" +
+    div.innerHTML = "<p>强烈推荐</p>\n" +
         "            <div class=\"itemImg\">\n" +
-        "                <img src=\"img/"+randomNum(1,6)+".jpg\" alt=\"\">\n" +
+        "                <img src=\"img/" + randomNum(1, 6) + ".jpg\" alt=\"\">\n" +
         "            </div>\n" +
         "\n" +
         "            <div class=\"gameRating\">\n" +
@@ -165,7 +165,7 @@ function moreMain() {
         "                </p>\n" +
         "            </div>\n" +
         "            <div class=\"gameInfo\">\n" +
-        "                <img src=\"img/"+randomNum(1,10)+"_icon.png\" alt=\"\">\n" +
+        "                <img src=\"img/" + randomNum(1, 10) + "_icon.png\" alt=\"\">\n" +
         "                <div>\n" +
         "                    <p class=\"game-title\">\n" +
         "                        <span>明日方舟</span>\n" +
@@ -184,8 +184,8 @@ function moreTop() {
     var div = document.createElement("div");
     div.classList.add("item");
     div.classList.add("animationFade");
-    div.innerHTML="<div>\n" +
-        "            <img src=\"img/"+randomNum(1,10)+"_icon.png\" alt=\"\" class=\"imgIcon\">\n" +
+    div.innerHTML = "<div>\n" +
+        "            <img src=\"img/" + randomNum(1, 10) + "_icon.png\" alt=\"\" class=\"imgIcon\">\n" +
         "        </div>\n" +
         "        <div class=\"description\">\n" +
         "            <h1>战双帕弥什</h1>\n" +
@@ -194,7 +194,7 @@ function moreTop() {
         "            <p>《战双帕弥什》是一款末世科幻题材的3D动作手游。你将化身指挥官，带领人类最后的希望——仿生人形「构造体」，共同对抗被「帕弥什」病毒感染的机械...</p>\n" +
         "        </div>\n" +
         "        <div>\n" +
-        "            <img src=\"img/"+randomNum(1,6)+".jpg\" alt=\"\" class=\"imgBig\">\n" +
+        "            <img src=\"img/" + randomNum(1, 6) + ".jpg\" alt=\"\" class=\"imgBig\">\n" +
         "        </div>\n" +
         "        <div class=\"itemTag\">\n" +
         "            <a href=\"#\">ARPG</a>\n" +
@@ -208,10 +208,11 @@ function moreTop() {
         "        <div class=\"itemNumBg\">\n" +
         "        </div>\n" +
         "        <div class=\"itemNum\">\n" +
-        "            "+(++noNum)+"\n" +
+        "            " + (++noNum) + "\n" +
         "        </div>"
     mainContent.appendChild(div);
 }
+
 /**
  * 发现模块加载更多
  */
@@ -220,14 +221,14 @@ function moreCategories() {
     var div = document.createElement("div");
     div.classList.add("item");
     div.classList.add("animationFade");
-    div.innerHTML="<div class=\"titleSection\">\n" +
-        "            <h3>"+categories[++cateIndex]+"</h3>\n" +
+    div.innerHTML = "<div class=\"titleSection\">\n" +
+        "            <h3>" + categories[++cateIndex] + "</h3>\n" +
         "            <a href=\"#\">更多</a>\n" +
         "        </div>\n" +
         "        <div class=\"subList\">\n" +
         "            <div class=\"subItem\">\n" +
         "                <a href=\"#\">\n" +
-        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                    <img src=\"img/categories" + randomNum(1, 12) + ".png\" alt=\"\">\n" +
         "                </a>\n" +
         "                <div class=\"subItemInfo\">\n" +
         "                    <a href=\"#\" class=\"subItemName\">电竞传奇</a>\n" +
@@ -237,7 +238,7 @@ function moreCategories() {
         "            </div>\n" +
         "            <div class=\"subItem\">\n" +
         "                <a href=\"#\">\n" +
-        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                    <img src=\"img/categories" + randomNum(1, 12) + ".png\" alt=\"\">\n" +
         "                </a>\n" +
         "                <div class=\"subItemInfo\">\n" +
         "                    <a href=\"#\" class=\"subItemName\">樱桃湾之夏</a>\n" +
@@ -247,7 +248,7 @@ function moreCategories() {
         "            </div>\n" +
         "            <div class=\"subItem\">\n" +
         "                <a href=\"#\">\n" +
-        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                    <img src=\"img/categories" + randomNum(1, 12) + ".png\" alt=\"\">\n" +
         "                </a>\n" +
         "                <div class=\"subItemInfo\">\n" +
         "                    <a href=\"#\" class=\"subItemName\">阿卡迪亚</a>\n" +
@@ -257,7 +258,7 @@ function moreCategories() {
         "            </div>\n" +
         "            <div class=\"subItem\">\n" +
         "                <a href=\"#\">\n" +
-        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                    <img src=\"img/categories" + randomNum(1, 12) + ".png\" alt=\"\">\n" +
         "                </a>\n" +
         "                <div class=\"subItemInfo\">\n" +
         "                    <a href=\"#\" class=\"subItemName\">无尽银河</a>\n" +
@@ -267,7 +268,7 @@ function moreCategories() {
         "            </div>\n" +
         "            <div class=\"subItem\">\n" +
         "                <a href=\"#\">\n" +
-        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                    <img src=\"img/categories" + randomNum(1, 12) + ".png\" alt=\"\">\n" +
         "                </a>\n" +
         "                <div class=\"subItemInfo\">\n" +
         "                    <a href=\"#\" class=\"subItemName\">幽行玄城</a>\n" +
@@ -277,7 +278,7 @@ function moreCategories() {
         "            </div>\n" +
         "            <div class=\"subItem\">\n" +
         "                <a href=\"#\">\n" +
-        "                    <img src=\"img/categories"+randomNum(1,12)+".png\" alt=\"\">\n" +
+        "                    <img src=\"img/categories" + randomNum(1, 12) + ".png\" alt=\"\">\n" +
         "                </a>\n" +
         "                <div class=\"subItemInfo\">\n" +
         "                    <a href=\"#\" class=\"subItemName\">猎人</a>\n" +
@@ -296,12 +297,12 @@ function moreCategories() {
  * @param maxNum
  * @returns {number}
  */
-function randomNum(minNum,maxNum){
-    switch(arguments.length){
+function randomNum(minNum, maxNum) {
+    switch (arguments.length) {
         case 1:
-            return parseInt(Math.random()*minNum+1,10);
+            return parseInt(Math.random() * minNum + 1, 10);
         case 2:
-            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
         default:
             return 0;
     }
@@ -312,16 +313,18 @@ function randomNum(minNum,maxNum){
  * @param variable
  * @returns {*}
  */
-function getQueryVariable(variable)
-{
+function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
+    for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-        if(pair[0] === variable){return pair[1];}
+        if (pair[0] === variable) {
+            return pair[1];
+        }
     }
-    return(false);
+    return (false);
 }
+
 var queryVariable = getQueryVariable("id");
 var navLis = document.getElementById("nav").getElementsByTagName("li");
 addActive(navLis[parseInt(queryVariable)]);

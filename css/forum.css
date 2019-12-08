@@ -1,0 +1,276 @@
+.allContent {
+    width: 1040px;
+    margin: 0 auto;
+    padding-top: 30px;
+
+}
+
+.forumTypeList {
+    margin: 0 0 12px;
+    padding: 0 30px;
+    width: 624px;
+    /*width: 980px;*/
+    height: 49px;
+    border: 1px solid rgba(221, 221, 221, .7);
+    border-radius: 3px;
+    background: #fff;
+    list-style: none;
+    float: left;
+    display: block;
+}
+
+.forumTypeList li {
+    float: left;
+    margin-right: 45px;
+    margin-bottom: -1px;
+    text-align: center;
+    position: relative;
+    display: block;
+    height: 51px;
+    line-height: 51px;
+    cursor: pointer;
+}
+
+.forumTypeList li:hover {
+    color: #5fdaff;
+}
+
+/*这样写的意思是.forumTypeList li在hover状态下的after怎样怎样,其实也能用border实现*/
+.forumTypeList li:hover:after {
+    background: #14B9C8;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    content: "";
+    border-radius: 1.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 2;
+}
+
+.active {
+    color: #5fdaff;
+}
+
+.active::after {
+    background: #14B9C8;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    content: '';
+    border-radius: 1.5px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 2;
+}
+
+/*mainContent*/
+.mainContent {
+    width: 636px;
+    float: left;
+    position: relative;
+}
+
+.item {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    margin-bottom: 16px;
+    border-radius: 3px;
+}
+
+.author {
+    padding-bottom: 12px;
+}
+
+.author img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+
+.author a {
+    color: #000;
+    display: block;
+    float: left;
+    font-size: 15px;
+}
+
+.author span {
+    color: #999;
+    display: block;
+    font-size: 12px;
+}
+
+.itemContent h3 {
+    padding-left: 24px;
+    background: url("../img/official.svg") no-repeat 2px;
+}
+
+.itemContent img {
+    width: 641px;
+    height: 357px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.itemTag a {
+    border-radius: 4px;
+    line-height: 24px;
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 12px;
+    align-items: center;
+    height: 24px;
+    background: rgba(20, 240, 255, 0.21);
+    color: #14d9e8;
+    margin: 0 8px 12px 0;
+    text-decoration: none;
+}
+
+.itemTag a:hover {
+    background: rgba(20, 240, 255, 0.37);
+}
+
+.itemTag a:last-child {
+    color: #151515;
+    background: #F4F4F4;
+}
+
+.itemTag a:last-child:hover {
+    background: #e4e4e4;
+}
+
+.itemFooter {
+    width: 100%;
+    height: 20px;
+}
+
+.itemFooter li {
+    float: left;
+    margin-right: 24px;
+    font-size: 12px;
+    color: #999999;
+    cursor: pointer;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.itemFooter li:hover {
+    transition: transform 0.2s;
+    transform: scale(1.15);
+}
+/*可以用url*/
+.itemFooter li:nth-child(1):before {
+    content: url("../img/like.svg");
+    position: relative;
+    top: 2px;
+    right: 4px;
+}
+
+.itemFooter li:nth-child(2):before {
+    content: url("../img/dislike.svg");
+    position: relative;
+    top: 4px;
+    right: 4px;
+
+}
+
+.itemFooter li:nth-child(3):before {
+    content: url("../img/reply.svg");
+    position: relative;
+    top: 4px;
+    right: 4px;
+}
+
+.itemFooter li:nth-child(4):before {
+    content: url("../img/share.svg");
+    position: relative;
+    top: 2px;
+    right: 4px;
+}
+
+/*右边*/
+.hotForum{
+    float: right;
+    width: 336px;
+    background: #ffffff;
+    border-radius: 3px;
+    padding-top: 20px;
+}
+.hotForum h3{
+    font-size: 18px;
+    position: relative;
+    padding: 0 15px;
+    overflow: hidden;
+    line-height: 25px;
+    margin: 0 0 20px;
+    font-weight: 500;
+}
+.hotForum h3:before{
+    background: #14B9C8;
+    border-radius: 2px;
+    width: 4px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    content: '';
+}
+.hotForum>h3>a{
+    float: right;
+    color: #14B9C8;
+    text-decoration: none;
+    font-size: 14px;
+}
+.rightItem{
+    position: relative;
+    cursor: pointer;
+    width: 336px;
+    height: 56px;
+    margin-bottom: 30px;
+}
+.rightItem img{
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+.rightItem h4{
+    padding-top: 7px;
+}
+.rightItem p{
+    color: #666666;
+    font-size: 13px;
+    padding-top: 10px;
+}
+.rightItem a{
+    display: block;
+    position: absolute;
+    width: 50px;
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #14B9C8;
+    color: #14B9C8;
+    right: 10px;
+    bottom: 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+.rightItem a:hover{
+    transition: transform 0.2s;
+    transform: scale(1.15);
+}
