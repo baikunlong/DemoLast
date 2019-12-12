@@ -898,7 +898,163 @@ function addActive(li) {
             cPage = 3;
             break;
         case "视频":
-            mainPage.innerHTML = "video.html";
+            mainPage.innerHTML = "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>Title</title>\n" +
+                "    <link rel=\"stylesheet\" href=\"css/common.css\">\n" +
+                "    <link rel=\"stylesheet\" href=\"css/video.css\">\n" +
+                "</head>\n" +
+                "\n" +
+                "<body class=\"animationFade\">\n" +
+                "<div class=\"allContent\">\n" +
+                "    <ul class=\"forumTypeList\">\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon1.png\" alt=\"\">\n" +
+                "            <p>英雄联盟</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon2.png\" alt=\"\">\n" +
+                "            <p>战双帕弥什</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon3.png\" alt=\"\">\n" +
+                "            <p>#COMPASS 战斗天赋解析系统</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon4.png\" alt=\"\">\n" +
+                "            <p>失落城堡</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon5.png\" alt=\"\">\n" +
+                "            <p>云顶之弈</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon6.png\" alt=\"\">\n" +
+                "            <p>双生视界</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon7.png\" alt=\"\">\n" +
+                "            <p>明日方舟</p>\n" +
+                "        </li>\n" +
+                "        <li>\n" +
+                "            <img src=\"img/video_icon8.png\" alt=\"\">\n" +
+                "            <p>炉石传说</p>\n" +
+                "        </li>\n" +
+                "    </ul>\n" +
+                "\n" +
+                "    <div class=\"upload\">\n" +
+                "        <div>点击上传视频</div>\n" +
+                "    </div>\n" +
+                "\n" +
+                "    <div class=\"hotForum\">\n" +
+                "        <h3>\n" +
+                "            <a href=\"#\" class=\"more\">更多</a>\n" +
+                "            最新回复\n" +
+                "        </h3>\n" +
+                "        <div class=\"rightItem\">\n" +
+                "            <img src=\"img/1.jpg\" alt=\"\">\n" +
+                "            <span>笑死我了...</span>\n" +
+                "            <p>秃驴敢跟老衲抢方丈</p>\n" +
+                "            <p>999 播放</p>\n" +
+                "            <div class=\"time\">01:27</div>\n" +
+                "        </div>\n" +
+                "        <div class=\"rightItem\">\n" +
+                "            <img src=\"img/1.jpg\" alt=\"\">\n" +
+                "            <span>笑死我了...</span>\n" +
+                "            <p>秃驴敢跟老衲抢方丈</p>\n" +
+                "            <p>999 播放</p>\n" +
+                "            <div class=\"time\">01:27</div>\n" +
+                "        </div>\n" +
+                "        <div class=\"rightItem\">\n" +
+                "            <img src=\"img/1.jpg\" alt=\"\">\n" +
+                "            <span>笑死我了...</span>\n" +
+                "            <p>秃驴敢跟老衲抢方丈</p>\n" +
+                "            <p>999 播放</p>\n" +
+                "            <div class=\"time\">01:27</div>\n" +
+                "        </div>\n" +
+                "        <div class=\"rightItem\">\n" +
+                "            <img src=\"img/1.jpg\" alt=\"\">\n" +
+                "            <span>笑死我了...</span>\n" +
+                "            <p>秃驴敢跟老衲抢方丈</p>\n" +
+                "            <p>999 播放</p>\n" +
+                "            <div class=\"time\">01:27</div>\n" +
+                "        </div>\n" +
+                "        <div class=\"rightItem\">\n" +
+                "            <img src=\"img/1.jpg\" alt=\"\">\n" +
+                "            <span>笑死我了...</span>\n" +
+                "            <p>秃驴敢跟老衲抢方丈</p>\n" +
+                "            <p>999 播放</p>\n" +
+                "            <div class=\"time\">01:27</div>\n" +
+                "        </div>\n" +
+                "        <div class=\"rightItem\">\n" +
+                "            <img src=\"img/1.jpg\" alt=\"\">\n" +
+                "            <span>笑死我了...</span>\n" +
+                "            <p>秃驴敢跟老衲抢方丈</p>\n" +
+                "            <p>999 播放</p>\n" +
+                "            <div class=\"time\">01:27</div>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "    <div class=\"mainContent\">\n" +
+                "        <div class=\"item\">\n" +
+                "            <div class=\"author\">\n" +
+                "                <img src=\"img/bugDuoDuo.jpg\" alt=\"\">\n" +
+                "                <a href=\"#\">白锟龙</a>\n" +
+                "                <br>\n" +
+                "                <span title=\"2019-12-08 09:51:09\">12-08</span>\n" +
+                "            </div>\n" +
+                "            <div class=\"itemContent\">\n" +
+                "                <p>\n" +
+                "                    攻略：王者荣耀冰封战神关羽连招，无限大招杀遍天下夏侯惇\n" +
+                "                </p>\n" +
+                "                <!--loop=\"loop\"-->\n" +
+                "                <video src=\"video/game.mp4\" controls=\"controls\" autoplay=\"autoplay\"></video>\n" +
+                "            </div>\n" +
+                "            <div class=\"itemTag\">\n" +
+                "                <a href=\"#\">王者荣耀</a>\n" +
+                "                <a href=\"#\">交流讨论</a>\n" +
+                "            </div>\n" +
+                "            <ul class=\"itemFooter\">\n" +
+                "                <li>99赞</li>\n" +
+                "                <li>99踩</li>\n" +
+                "                <li>99回复</li>\n" +
+                "                <li>分享</li>\n" +
+                "            </ul>\n" +
+                "        </div>\n" +
+                "        <div class=\"item\">\n" +
+                "            <div class=\"author\">\n" +
+                "                <img src=\"img/bugDuoDuo.jpg\" alt=\"\">\n" +
+                "                <a href=\"#\">白锟龙</a>\n" +
+                "                <br>\n" +
+                "                <span title=\"2019-12-08 09:51:09\">12-08</span>\n" +
+                "            </div>\n" +
+                "            <div class=\"itemContent\">\n" +
+                "                <p>\n" +
+                "                    攻略：王者荣耀冰封战神关羽连招，无限大招杀遍天下夏侯惇\n" +
+                "                </p>\n" +
+                "                <!--loop=\"loop\"-->\n" +
+                "                <video src=\"video/game.mp4\" controls=\"controls\"></video>\n" +
+                "            </div>\n" +
+                "            <div class=\"itemTag\">\n" +
+                "                <a href=\"#\">王者荣耀</a>\n" +
+                "                <a href=\"#\">交流讨论</a>\n" +
+                "            </div>\n" +
+                "            <ul class=\"itemFooter\">\n" +
+                "                <li>99赞</li>\n" +
+                "                <li>99踩</li>\n" +
+                "                <li>99回复</li>\n" +
+                "                <li>分享</li>\n" +
+                "            </ul>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "\n" +
+                "</div>\n" +
+                "</body>\n" +
+                "</html>";
             cPage = 4;
             break;
     }
@@ -1143,6 +1299,34 @@ function moreForum() {
  * 视频加载更多
  */
 function moreVideo() {
+    var mainContent = mainPage.getElementsByClassName("mainContent")[0];
+    var div = document.createElement("div");
+    div.classList.add("item");
+    div.classList.add("animationFade");
+    div.innerHTML ='<div class="author">\n' +
+        '                <img src="img/bugDuoDuo.jpg" alt="">\n' +
+        '                <a href="#">白锟龙</a>\n' +
+        '                <br>\n' +
+        '                <span title="2019-12-08 09:51:09">12-08</span>\n' +
+        '            </div>\n' +
+        '            <div class="itemContent">\n' +
+        '                <p>\n' +
+        '                    攻略：王者荣耀冰封战神关羽连招，无限大招杀遍天下夏侯惇\n' +
+        '                </p>\n' +
+        '                <!--loop="loop" autoplay="autoplay"-->\n' +
+        '                <video src="video/game.mp4" controls="controls"></video>\n' +
+        '            </div>\n' +
+        '            <div class="itemTag">\n' +
+        '                <a href="#">王者荣耀</a>\n' +
+        '                <a href="#">交流讨论</a>\n' +
+        '            </div>\n' +
+        '            <ul class="itemFooter">\n' +
+        '                <li>99赞</li>\n' +
+        '                <li>99踩</li>\n' +
+        '                <li>99回复</li>\n' +
+        '                <li>分享</li>\n' +
+        '            </ul>';
+    mainContent.appendChild(div);
 
 }
 
